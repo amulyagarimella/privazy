@@ -5,17 +5,17 @@ html{
 }
 
 body {
-    background: radial-gradient(#b5e1ff, #cfa8ea, #e34c72);
+    background: radial-gradient(#0398bd, #11c443, #bfd70a);
     background-size: 600% 600%;
-    -webkit-animation: AnimationName 12s ease infinite;
-    -moz-animation: AnimationName 12s ease infinite;
-    animation: AnimationName 12s ease infinite;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
     margin-left: 50px;
 }
 
 @-webkit-keyframes AnimationName {
     0%{background-position:13% 0%}
-    50%{background-position:88% 100%}
+    50%{background-position:20% 100%}
     100%{background-position:13% 0%}
 }
 @-moz-keyframes AnimationName {
@@ -99,6 +99,8 @@ footer {
     border: solid white 1px;
     color: white;
     overflow: hidden;
+    display: block;
+    margin-bottom: 0px;
 }
 
 /*
@@ -126,31 +128,23 @@ button:hover {
 }
 
 .scrollbox {
+    margin-top:0px;
     overflow-x: hidden;
     overflow-y: scroll;
-    width: 50%;
-    height: 30%;
+    max-width: 50%;
+    max-height: 30%;
     padding: 5px;
     margin-bottom: 20px;
-}
-
-.scrollbox > p {
     font-size: 1em;
-    margin: auto;
 }
 
 .quizl {
     float: left;
-    display: inline;
+    display: inline-block;
 }
 
 .quizr {
     float: right;
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
-}
-
-.question {
-    display: block;
-    margin-bottom: 0px;
 }
