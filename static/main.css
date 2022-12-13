@@ -1,0 +1,157 @@
+html{
+	min-height: 100vh;
+	font-family: 'Inter', sans-serif;
+    --fill: #0012b3;
+}
+
+body {
+    background: radial-gradient(#b5e1ff, #cfa8ea, #e34c72);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 12s ease infinite;
+    -moz-animation: AnimationName 12s ease infinite;
+    animation: AnimationName 12s ease infinite;
+    margin-left: 50px;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:13% 0%}
+    50%{background-position:88% 100%}
+    100%{background-position:13% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:13% 0%}
+    50%{background-position:88% 100%}
+    100%{background-position:13% 0%}
+}
+@keyframes AnimationName { 
+    0%{background-position:13% 0%}
+    50%{background-position:88% 100%}
+    100%{background-position:13% 0%}
+}
+
+h1, .main-link {
+    margin: auto;
+    -webkit-text-stroke: 2px var(--fill);
+    text-decoration: none;
+    color: var(--fill);
+}
+
+.main-link > span, h1 > span { 
+    color: transparent;
+}
+
+.main-link {
+    font-weight: 200;
+}
+
+.main-link:hover {
+    color: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+h1 {
+    font-size: 10em;
+    font-weight: 300;
+}
+
+footer {
+    color: white;
+    font-size: 1.2em;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+p {
+    font-size: 1.5em;
+    color: white;
+}
+
+.main-text {
+    font-size: 6em;
+    margin: auto;
+}
+
+.container {
+    padding-left: 30px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 5px;
+    margin-left: 50px;
+}
+
+.quiz {
+    margin-top:20px;
+    max-width: 80%;
+    height: auto;
+    border: solid white 1px;
+    color: white;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/*
+button {
+    background-color: var(--fill);
+    box-shadow: 0 0 0 1px var(--fill);
+    border: none;
+    border-radius: 2px;
+    color: #97A2D6;
+    width: 300px;
+    height: 100px;
+    margin: 20px;
+    font-size: 2em;
+    transition: color .2s, background-color .2s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--fill);
+}
+*/
+
+.hidden {
+    display: none;
+}
+
+.scrollbox {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 50%;
+    height: 30%;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.scrollbox > p {
+    font-size: 1em;
+    margin: auto;
+}
+
+.quizl {
+    float: left;
+    display: inline;
+    margin-bottom: 20px;
+}
+
+.quizr {
+    float: right;
+    display: inline;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.question {
+    display: block;
+}

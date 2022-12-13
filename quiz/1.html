@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "block";
+                        }
+                        for (let j=0; j < i; j++) {
+                            show[j].innerHTML = "";
+                        }
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].innerHTML = "";
+                        }
+                    })
+                }
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <div class="container quiz">
+            <p>It's been a long week...I deserve a break. Let's open up TikTok!</p>
+            <p><a class="show q1">Click here to open TikTok</a></p>
+            <div class="hidden q1">
+                <img src="https://brands.joinstatus.com/hs-fs/hubfs/tiktok%20ad%20example%201.gif?width=350&name=tiktok%20ad%20example%201.gif", width="15%"/>
+                <p>Ugh, <i>another</i> ad...<a class="show q2">why do I keep getting these?</a></p>
+            </div>
+            <div class="hidden q2">
+                <p>Looks like TikTok just changed their privacy policy. <a href="2.html">Take a look?</a></p>
+            </div>
+        </div>
+    </body>
+    <footer>
+        
+    </footer>
+</html>

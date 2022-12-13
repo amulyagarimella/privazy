@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1] + "." + show[i].classList[2]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "block";
+                        }
+                        show[i].innerHTML = "";
+                    })
+                }
+                let corrects = document.querySelectorAll(".correct");
+                for (let i=0; i < corrects.length; i++) {
+                    corrects[i].addEventListener('click', function() {
+                        let incorrects = document.querySelectorAll("." + corrects[i].classList[1] + ".incorrect");
+                        for (let j=0; j < incorrects.length; j++)
+                        {
+                            incorrects[j].innerHTML = "";
+                        }
+                        let sameshows = document.querySelectorAll(".show." + corrects[i].classList[1] + ".correct");
+                        for (let j=0; j < sameshows.length; j++)
+                        {
+                            sameshows[j].innerHTML = "";
+                        }
+                    })
+                }
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <div class="container quiz">
+            <div class="question">
+                <p>Does TikTok know where you are located at all times?</p>
+                <p class="quizl"><a class="show q1 correct">Yes</a> <span class="hidden q1 correct">Correct! TikTok knows your location.</span></p>
+                <p class="quizr"><a class="show q1 incorrect">No</a> <span class="hidden q1 incorrect">Try again!</span></p>
+            </div>
+        </div>
+
+        <div class="container quiz">
+            <div class="question">
+                <p>Does TikTok have access to all of your private TikTok DMs?</p>
+                <p class="quizl"><a class="show q2 correct">Yes</a> <span class="hidden q2 correct">Correct! TikTok has access to all your DMs on the app.</span></p>
+                <p class="quizr"><a class="show q2 incorrect">No</a> <span class="hidden q2 incorrect">Try again!</span></p>
+            </div>
+        </div>
+
+        <div class="container quiz">
+            <div class="question">
+                <p>Does TikTok track what videos you watch and how long you watch them?</p>
+                <p class="quizl"><a class="show q3 correct">Yes</a> <span class="hidden q3 correct">Correct! TikTok tracks all the videos you watch (and upload) to the app.</span></p>
+                <p class="quizr"><a class="show q3 incorrect">No</a> <span class="hidden q3 incorrect">Try again!</span></p>
+            </div>
+        </div>
+
+        <div class="container quiz">
+            <div class="question">
+                <p>Can TikTok share your information with governments?</p>
+                <p class="quizl"><a class="show q4 correct">Yes</a> <span class="hidden q4 correct">Correct! TikTok can share all of your information with governments.</span></p>
+                <p class="quizr"><a class="show q4 incorrect">No</a> <span class="hidden q4 incorrect">Try again!</span></p>
+            </div>
+        </div>
+
+        <div class="container quiz">
+            <div class="question">
+                <p>Does TikTok know all of your friends and everyone you text?</p>
+                <p class="quizl"><a class="show q5 correct">Yes</a> <span class="hidden q5 correct">Sorry, trick question! It’s a "maybe": depending on if you shared your contacts with the app, which you should never do!                </span></p>
+                <p class="quizr"><a class="show q5 correct">No</a> </p>
+            </div>
+        </div>
+        
+    </body>
+    <footer>
+        
+    </footer>
+</html>
