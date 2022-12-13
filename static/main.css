@@ -99,7 +99,6 @@ footer {
     border: solid white 1px;
     color: white;
     overflow: hidden;
-    margin-bottom: 20px;
 }
 
 /*
@@ -143,16 +142,15 @@ button:hover {
 .quizl {
     float: left;
     display: inline;
-    margin-bottom: 20px;
 }
 
 .quizr {
     float: right;
     display: inline;
     margin-right: 20px;
-    margin-bottom: 20px;
 }
 
 .question {
     display: block;
+    margin-bottom: 0px;
 }

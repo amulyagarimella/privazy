@@ -16,6 +16,10 @@
                     })
                 }
                 let corrects = document.querySelectorAll(".correct");
+                let qCount = document.querySelectorAll(".hidden.correct").length
+                let correctCount = 0;
+                let count = document.querySelector("#count");
+                let last = document.querySelector("#last");
                 for (let i=0; i < corrects.length; i++) {
                     corrects[i].addEventListener('click', function() {
                         let incorrects = document.querySelectorAll("." + corrects[i].classList[1] + ".incorrect");
@@ -27,6 +31,12 @@
                         for (let j=0; j < sameshows.length; j++)
                         {
                             sameshows[j].innerHTML = "";
+                        }
+                        correctCount++;
+                        count.innerHTML = correctCount;
+                        console.log(qCount);
+                        if (correctCount == qCount) {
+                            last.innerHTML = 'Great job! <a href="4.html">Move on &#8594;</a>';
                         }
                     })
                 }
@@ -70,9 +80,15 @@
         <div class="container quiz">
             <div class="question">
                 <p>Does TikTok know all of your friends and everyone you text?</p>
-                <p class="quizl"><a class="show q5 correct">Yes</a> <span class="hidden q5 correct">Sorry, trick question! It's a "maybe": depending on if you shared your contacts with the app, which you should never do!                </span></p>
-                <p class="quizr"><a class="show q5 correct">No</a> </p>
+                <p class="quizl"><a class="show q5 correct">Yes</a></p>
+                <p class="quizr"><a class="show q5 correct">No</a></p>
+                <p class="hidden q5 correct">Sorry, trick question! It's a "maybe": depending on if you shared your contacts with the app, which you should never do!</p>
             </div>
+        </div>
+
+        <div class="container quiz">
+            <p>Complete: <span id="count">0</span>/5</p>
+            <p id="last">Complete the quiz to move on!</p>
         </div>
         
     </body>
