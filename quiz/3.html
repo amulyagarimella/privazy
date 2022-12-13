@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/main.css" />
         <script>
 			document.addEventListener('DOMContentLoaded', function() {
@@ -40,11 +40,22 @@
                         }
                     })
                 }
+                let back = document.querySelector(".back-link");
+                back.addEventListener('click', function () {
+                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
+                    if (answer) {
+                        window.location.href="../index.html";
+                    }
+                    else {
+                        return false;
+                    }
+                })
             })
 		</script>
     </head>
     <body>
         <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 1: TikTok Troubles</p>
         <div class="container quiz">
             <p>Does TikTok know where you are located at all times?</p>
             <p class="quizl"><a class="show q1 correct">Yes</a> <span class="hidden q1 correct">Correct! TikTok knows your location.</span></p>
@@ -80,7 +91,7 @@
             <p>Complete: <span id="count">0</span>/5</p>
             <p id="last">Complete the quiz to move on!</p>
         </div>
-        
+        <a class="back-link">home</a>
     </body>
     <footer>
         
