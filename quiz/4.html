@@ -5,20 +5,20 @@
         <link rel="stylesheet" href="../static/main.css" />
         <script>
 			document.addEventListener('DOMContentLoaded', function() {
-				let show = document.querySelectorAll(".toggle");
+				let show = document.querySelectorAll(".show");
 				for (let i=0; i < show.length; i++) {
                     show[i].addEventListener('click', function() {
                         let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
                         let replace = document.querySelectorAll(".replace." + show[i].classList[1]);
                         for (let j=0; j < hidden.length; j++)
                         {
-                            console.log(hidden[j].style.display);
-                            if (hidden[j].style.display != "block") {
-                                hidden[j].style.display = "block";
-                            }
-                            else {
-                                hidden[j].style.display = "none";
-                            }
+                            hidden[j].style.display = "block";
+                            
+                        }
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].style.textDecoration = "none";
+                            samelvl[j].style.cursor = "auto";
                         }
                         for (let j=0; j < replace.length; j++) {
                             replace[j].innerHTML = "";
@@ -28,7 +28,7 @@
                 let back = document.querySelector(".back-link");
                 back.addEventListener('click', function () {
                     var ans = window.confirm("You will lose your progress on the quiz! Return home?");
-                    if (answer) {
+                    if (ans) {
                         window.location.href="../index.html";
                     }
                     else {
@@ -42,24 +42,24 @@
         <h1>qui<span>z</span></h1>
         <p class="subtitle">Part 1: TikTok Troubles</p>
         <div class="container quiz">
-            <p>TikTok can track all of your activities on the Internet, including your <a class="toggle q1">passwords</a>.</p>
+            <p>TikTok can track all of your activities on the Internet, including your <a class="show q1">passwords</a>.</p>
             <div class="quiz scrollbox hidden q1">
                 Research from a German data protection research agency (Rufposten) revealed in 2019 that TikTok installs browser trackers on your device which track all your activities on the internet. In 2020, Apple caught TikTok spying on millions of iPhone users, including logging passwords on other apps.
             </div>
 
-            <p>TikTok can can track your activity on totally unrelated, <a class="toggle q2">really personal</a> websites.</p>
+            <p>TikTok can can track your activity on totally unrelated, <a class="show q2">really personal</a> websites.</p>
             <div class="quiz scrollbox hidden q2">
                 According to Consumer Reports, TikTok embeds tracking on hundreds of other websites. "If you go to the United Methodist Church's main website, TikTok hears about it. Interested in joining Weight Watchers? TikTok finds that out, too. The Arizona Department of Economic Security tells TikTok when you view pages concerned with domestic violence or food assistance. Even Planned Parenthood uses the trackers, automatically notifying TikTok about every person who goes to its website, though it doesn't share information from the pages where you can book an appointment."
             </div>
 
-            <p>TikTok's privacy practices are so bad that they've been <a class="toggle q3">sued in court</a> for violating privacy!</p>
+            <p>TikTok's privacy practices are so bad that they've been <a class="show q3">sued in court</a> for violating privacy!</p>
             <div class="quiz scrollbox hidden q3">
                 In October 2022, TikTok users who created videos on the app before September 30, 2021 began receiving payments up to $167.04 after a $92 million class-action data privacy settlement. Would you be eligible under that lawsuit?
             </div>
 
             <p>Do you think the risks are worth it? The decision is up to you.</p>
 
-            <p>Even if you don't want to delete TikTok, there's <a class="toggle q4">a lot you can do</a> to protect your privacy.</p>
+            <p>Even if you don't want to delete TikTok, there's <a class="show q4">a lot you can do</a> to protect your privacy.</p>
             <div class="quiz scrollbox hidden q4">
                 The Washington Post recommends that to limit how much advertisers can target you, 
                 go to Settings and Privacy &#8594; Privacy &#8594; Ads Personalization. Then, make sure that
@@ -68,7 +68,7 @@
 
             <p class="hidden q4">I've turned off personalized ads &#8212; <a href="5.html">but why are they such an issue?</a></p>
 
-            <p class="replace q4">Click and read all of the info links to move on!</p>
+            <p class="replace q4">Turn off personalized ads to move on!</p>
         </div>
         <a class="back-link">home</a>
     </body>

@@ -2,6 +2,7 @@ html{
 	min-height: 100vh;
 	font-family: 'Inter', sans-serif;
     --fill: #0012b3;
+    --lightfill: #0012b3;
 }
 
 body {
@@ -31,17 +32,19 @@ body {
 
 h1, .main-link, .back-link {
     margin: auto;
-    -webkit-text-stroke: 2px var(--fill);
     text-decoration: none;
     color: var(--fill);
-    font-weight: 300;
-
+    font-weight: 700;
     /*text-shadow: 1px 1px 3px #004e6280;*/
 }
 
-.back-link, .main-link > span, .main-link:hover, h1 > span { 
+.main-link {
+    -webkit-text-stroke: 3px var(--fill);
+}
+
+
+.back-link:hover, .main-link:hover, .main-link > span, h1 > span { 
     color: transparent;
-    text-shadow: none;
 }
 
 .back-link:hover, .main-link:hover {
@@ -49,8 +52,10 @@ h1, .main-link, .back-link {
     text-decoration-thickness: 3px;
 }
 
-h1 {
-    font-size: 10em;
+h1, .back-link {
+    font-size: 3em;
+    font-weight: 700;
+    -webkit-text-stroke: 2px var(--fill);
 }
 
 a:hover {
@@ -73,6 +78,7 @@ p {
 .main-text {
     font-size: 6em;
     margin: auto;
+    font-weight: 700;
 }
 
 .subtitle {
@@ -81,6 +87,7 @@ p {
 
 .container {
     padding-left: 30px;
+    padding-right: 30px;
 }
 
 footer {
@@ -93,11 +100,17 @@ footer {
 }
 
 .back-link {
+    font-weight: 600;
     position: fixed;
     right: 2%;
     bottom: 1%;
     float: right;
-    font-size: 3em;
+    font-size: 2.5em;
+    -webkit-text-stroke: 2px var(--fill);
+}
+
+.back-link:hover {
+    -webkit-text-stroke: 2px var(--fill);
 }
 
 .quiz {
@@ -111,25 +124,6 @@ footer {
     margin-bottom: 0px;
 }
 
-/*
-button {
-    background-color: var(--fill);
-    box-shadow: 0 0 0 1px var(--fill);
-    border: none;
-    border-radius: 2px;
-    color: #97A2D6;
-    width: 300px;
-    height: 100px;
-    margin: 20px;
-    font-size: 2em;
-    transition: color .2s, background-color .2s;
-}
-
-button:hover {
-    background-color: transparent;
-    color: var(--fill);
-}
-*/
 
 .hidden {
     display: none;
@@ -165,4 +159,22 @@ button:hover {
 emph {
     color: var(--fill);
     font-weight: 600;
+}
+
+img {
+    filter: drop-shadow(2px 0 0 white) 
+            drop-shadow(0 2px 0 white)
+            drop-shadow(-2px 0 0 white) 
+            drop-shadow(0 -2px 0 white);
+}
+
+.out {
+    color: var(--fill);
+}
+
+::selection {
+    background: #79d5dd76;
+}
+::-moz-selection {
+    background: #79d5dd76;
 }
