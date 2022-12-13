@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="static/main.css" />
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                let openAbout = document.querySelector("a.about-modal.show");
-                let about = document.querySelector("div.about-modal");
+                let openAbout = document.querySelector("a.about.modal.show");
+                let about = document.querySelector("div.about.modal");
                 let overlay = document.querySelector("div.overlay");
-                let closeAbout = document.querySelector("a.about-modal.hide");
+                let closeAbout = document.querySelector("a.about.modal.hide");
                 openAbout.addEventListener('click', function () {
                     overlay.style.display = "block";
                     about.style.display = "inline";
@@ -19,9 +19,9 @@
                     overlay.style.display = "none";
                 })
 
-                let openFeedback = document.querySelector("a.feedback-modal.show");
-                let feedback = document.querySelector("div.feedback-modal");
-                let closeFeedback = document.querySelector("a.feedback-modal.hide");
+                let openFeedback = document.querySelector("a.feedback.modal.show");
+                let feedback = document.querySelector("div.feedback.modal");
+                let closeFeedback = document.querySelector("a.feedback.modal.hide");
                 openFeedback.addEventListener('click', function () {
                     overlay.style.display = "block";
                     feedback.style.display = "inline";
@@ -46,9 +46,9 @@
             <p class="main-text">Finally, sign the <a href="#" class="main-link">pledge</a>.</p>
         </div>
 
-        <div class="about-modal hidden">
+        <div class="about modal hidden">
             <div class="quiz scrollbox">
-                <p><a class="about-modal hide">x</a></p>
+                <p><a class="about modal hide">x</a></p>
             </div>
             <div class="quiz scrollbox">
                 <p>
@@ -65,9 +65,9 @@
             </div>
         </div>
 
-        <div class="feedback-modal hidden">
+        <div class="feedback modal hidden">
             <div class="quiz scrollbox">
-                <p><a class="feedback-modal hide">x</a></p>
+                <p><a class="feedback modal hide">x</a></p>
             </div>
             <div class="quiz scrollbox">
                 <p>
@@ -84,6 +84,6 @@
     </body>
 
     <footer>
-        <a class="about-modal show">about us</a> / <a class="feedback-modal show">feedback</a>
+        <a class="about modal show">about us</a> / <a class="feedback modal show">feedback</a>
     </footer>
 </html>

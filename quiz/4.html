@@ -25,15 +25,24 @@
                         }
                     })
                 }
-                let back = document.querySelector(".back-link");
-                back.addEventListener('click', function () {
-                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
-                    if (ans) {
-                        window.location.href="../index.html";
-                    }
-                    else {
-                        return false;
-                    }
+                let openBack = document.querySelector("a.back.modal.s");
+                let back = document.querySelector("div.back.modal");
+                let next = document.querySelector("a.back.modal.n");
+                let closeBack = document.querySelector("a.back.modal.h");
+                let overlay = document.querySelector(".overlay");
+                openBack.addEventListener('click', function () {
+                    console.log("hi");
+                    overlay.style.display = "block";
+                    back.style.display = "inline";
+                })
+                closeBack.addEventListener('click', function () {
+                    back.style.display = "none";
+                    overlay.style.display = "none";
+                })
+                next.addEventListener('click', function () {
+                    back.style.display = "none";
+                    overlay.style.display = "none";
+                    window.location.href="../index.html";
                 })
             })
 		</script>
@@ -70,7 +79,19 @@
 
             <p class="replace q4">Turn off personalized ads to move on!</p>
         </div>
-        <a class="back-link">home</a>
+        <a class="back modal s back-link">home</a>
+
+        <div class="back modal hidden">
+            <div class="quiz scrollbox">
+                <p>
+                    Are you sure you want to go back?
+                </p>
+                <p class="quizl"><a class="back modal n">Yes!</a></p>
+                <p class="quizr"><a class="back modal h">Cancel</a></p>
+            </div>
+        </div>
+
+        <div class="overlay hidden"></div>
     </body>
     <footer>
         

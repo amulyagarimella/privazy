@@ -171,7 +171,7 @@ img {
     color: var(--fill);
 }
 
-div.about-modal, div.feedback-modal, .overlay {
+div.modal, .overlay {
     margin: auto;
     position: absolute;
     left: 50%;
@@ -179,13 +179,18 @@ div.about-modal, div.feedback-modal, .overlay {
     transform: translate(-50%, -50%);
 }
 
-div.about-modal, div.feedback-modal {
+div.modal {
     z-index: 2 !important;
-    width: 70% !important;
+    width: 50% !important;
+    background: radial-gradient(#0398bd, #11c443, #bfd70a);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
 }
 
-.about-modal > .scrollbox, div.feedback-modal > .scrollbox {
-    background-color: var(--fill);
+.modal > .scrollbox {
+    background: transparent;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 5px;
@@ -193,16 +198,18 @@ div.about-modal, div.feedback-modal {
     margin: auto;
     font-size: 1.5em;
     line-height: 150%;
+    max-width: none;
+    max-height: none;
 }
 
-.about-modal > .quiz > p, .feedback-modal > .quiz > p{
+.about > .quiz > p {
     margin: auto;
 }
 
 .overlay {
     width: 100%;
     height: 100%;
-    background-color: #5e5e5e64;
+    background-color: #00134064;
     z-index: 1 !important;
 }
 
