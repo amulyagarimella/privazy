@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1] + "." + show[i].classList[2]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "block";
+                        }
+                        show[i].innerHTML = "";
+                    })
+                }
+                let corrects = document.querySelectorAll(".correct");
+                let qCount = document.querySelectorAll(".hidden.correct").length
+                let correctCount = 0;
+                let count = document.querySelector("#count");
+                let last = document.querySelector("#last");
+                for (let i=0; i < corrects.length; i++) {
+                    corrects[i].addEventListener('click', function() {
+                        let incorrects = document.querySelectorAll("." + corrects[i].classList[1] + ".incorrect");
+                        for (let j=0; j < incorrects.length; j++)
+                        {
+                            incorrects[j].parentElement.remove();
+                        }
+                        let sameshows = document.querySelectorAll(".show." + corrects[i].classList[1] + ".correct");
+                        for (let j=0; j < sameshows.length; j++)
+                        {
+                            sameshows[j].innerHTML = "";
+                        }
+                        correctCount++;
+                        count.innerHTML = correctCount;
+                        console.log(qCount);
+                        if (correctCount == qCount) {
+                            last.innerHTML = 'What have we <a href="8.html">learned</a>?';
+                        }
+                    })
+                }
+                let back = document.querySelector(".back-link");
+                back.addEventListener('click', function () {
+                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
+                    if (ans) {
+                        window.location.href="../index.html";
+                    }
+                    else {
+                        return false;
+                    }
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 2: Personalization Nation</p>
+        <p>Take your best guess on the following questions to see what personalization can do!</p>
+        <div class="container quiz">
+            <p>Target's personalized shopping trackers try to find out when someone is pregnant in order to sell them baby products.
+                They can make a lot of money by targeting new parents.
+            </p>
+            <p>In the past, this personalized tracking revealed a teenager's pregnancy to her dad.</p>
+            <p class="quizl"><a class="show q1 correct">True</a> <span class="hidden q1 correct">Correct! This happened in X year.</span></p>
+            <p class="quizr"><a class="show q1 incorrect">False</a> <span class="hidden q1 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>Many mental health apps sell data to Facebook to be used for personalized advertising.</p>
+            <p class="quizl"><a class="show q2 correct">True</a> <span class="hidden q2 correct">Correct! Facebook protects <i>some</i> mental-health related data, but allows advertisers to know whether you are using mental health apps.</span></p>
+            <p class="quizr"><a class="show q2 incorrect">False</a> <span class="hidden q2 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>In the 2022 midterm elections, Detroit voters saw different campaign ads for the same candidate based on their political leanings. These ads emphasized different parts of the candidate's policies.</p>
+            <p class="quizl"><a class="show q3 correct">True</a> <span class="hidden q3 correct">Correct! TODO link NYT</span></p>
+            <p class="quizr"><a class="show q3 incorrect">False</a> <span class="hidden q3 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>Research has found that personalized ads can change how you see yourself. For example, if you get ads emphasizing the outdoors, you might see yourself as more outdoorsy.</p>
+            <p class="quizl"><a class="show q4 correct">True</a> <span class="hidden q4 correct">Correct! TODO HBR article</span></p>
+            <p class="quizr"><a class="show q4 incorrect">False</a> <span class="hidden q4 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>In October 2022, Tiktok approved "90% of ads that contained blatantly false or misleading information" about the midterm elections.</p>
+            <p>For example, some of the ads falsely claimed that voting days would be extended.</p>
+            <p class="quizl"><a class="show q5 correct">True</a> <span class="hidden q5 correct">Correct! TODO CNN article</span></p>
+            <p class="quizr"><a class="show q5 incorrect">False</a> <span class="hidden q5 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>In June 2022, researchers found that teenagers saw thousands of online ads for alcohol, gambling, and unhealthy food every week.</p>
+            <p>Most of these were "dark ads," or ads that are only visible to their intended targets.</p>
+            <p class="quizl"><a class="show q6 correct">True</a> <span class="hidden q6 correct">Correct! TODO CNN article</span></p>
+            <p class="quizr"><a class="show q6 incorrect">False</a> <span class="hidden q6 incorrect">Try again!</span></p>
+        </div>
+
+        <div class="container quiz">
+            <p>Facebook and Instagram advertisers can't target you based off of your race, since that is explicitly prohibited by their rules.</p>
+            <p class="quizl"><a class="show q7 incorrect">True</a> <span class="hidden q7 incorrect">Try again!</span></p>
+            <p class="quizr"><a class="show q7 correct">False</a></p>
+            <p class="hidden q7 correct">Correct! TODO see Markup article</p>
+        </div>
+
+        <div class="container quiz">
+            <p>Complete: <span id="count">0</span>/7</p>
+            <p id="last">Complete the quiz to move on!</p>
+        </div>
+        <a class="back-link">home</a>
+    </body>
+    <footer>
+        
+    </footer>
+</html>

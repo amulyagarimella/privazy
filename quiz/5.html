@@ -1,0 +1,62 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "block";
+                            
+                        }
+                        /*for (let j=0; j < i; j++) {
+                            show[j].innerHTML = "";
+                        }*/
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].style.textDecoration = "none";
+                            samelvl[j].style.cursor = "auto";
+                        }
+                    
+                    })
+                }
+                let back = document.querySelector(".back-link");
+                back.addEventListener('click', function () {
+                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
+                    if (ans) {
+                        window.location.href="../index.html";
+                    }
+                    else {
+                        return false;
+                    }
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 2: Personalization Nation</p>
+        <div class="container quiz">
+            <p>Companies like TikTok use "personalization" as an excuse for collecting all sorts of data about you.
+                And the personalization <i>works</i>: after all, who doesn't <a class="show q1">love the FYP</a>?
+            </p>
+            <div class="hidden q1">
+                <p>Have you ever been talking about a product (say, some shoes you really wanted), and then seen an ad for it online?
+                Personal advertising can feel creepy and invasive. </p>
+                <img src="https://media4.giphy.com/media/dBMzf4XMpSMNlwUq4r/giphy.gif" style="height: 20%"/>
+                <img src="https://i.giphy.com/media/m9q62jEqdr1FUoFIXg/giphy.webp"  style="height: 20%">
+                <p><a href="6.html">What exactly can companies learn about me?</a></p>
+            </div>
+            
+        </div>
+        <a class="back-link">home</a>
+    </body>
+    <footer>
+        
+    </footer>
+</html>

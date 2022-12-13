@@ -1,0 +1,74 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "inline-block";
+                            hidden[j].style.marginTop = "auto";
+                        }
+                        for (let j=0; j < i; j++) {
+                            show[j].innerHTML = "";
+                        }
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].innerHTML = "";
+                        }
+                    })
+                }
+                let back = document.querySelector(".back-link");
+                back.addEventListener('click', function () {
+                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
+                    if (ans) {
+                        window.location.href="../index.html";
+                    }
+                    else {
+                        return false;
+                    }
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 2: Personalization Nation</p>
+        <div class="container quiz">
+            <p>
+                Many companies make money by selling your personal data to advertisers (in 2019, Facebook made $56.5B from selling users' personal data).
+                As you probably know, these advertisers use your <a class="show q1">information</a> <span class="hidden q1">age, gender, race, political leaning, health info...</span> to figure out what ads to show you.
+            </p>
+            <p class="hidden q1">
+                <a class="show q2">Let's take mental health as an example.</a><span class="hidden q2">Let's take mental health as an example: advertisers can see whether you've searched for mental health services online.</span>
+            </p>
+            
+            <p class="hidden q2">
+                <a class="show q3">Sometimes, that can be used for good.</a>
+                <span class="hidden q3">Sometimes, that can be used for good &#8212; for instance,
+                <a href="https://www.psychologytoday.com/us/blog/the-health-our-youth/202206/targeted-digital-ads-help-youth-seeking-mental-health-support" target="_blank" rel="noopener" class="out">researchers can target ads promoting free mental health services</a> to people who've looked for mental health support.</span>
+            </p>
+
+            <p class="hidden q3">
+                <a class="show q4">But not everyone has our best interests at heart.</a>
+                <span class="hidden q4">
+                    But not everyone has our best interests at heart. In May 2022, the Mozilla Foundation found that personal data (like name, phone number, and email) from therapy apps like BetterHelp and Talkspace
+                    can be <a href="https://www.theverge.com/2022/6/23/23179866/elizabeth-warren-betterhelp-talkspace-therapy-pandemic-app-philip-defranco" target="_blank" rel="noopener" class="out">accessed by third-party advertisers</a>.
+                    Any of these third parties could know, in other words, whether you're using a therapy, and even how often you talk with a therapist.
+                </span>
+            </p>
+
+            <p class="hidden q4">How can personalization effect us <a href="7.html">in real life?</a></p>
+            
+        </div>
+        <a class="back-link">home</a>
+    </body>
+    <footer>
+        
+    </footer>
+</html>

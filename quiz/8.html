@@ -1,0 +1,51 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "inline-block";
+                            hidden[j].style.marginTop = "auto";
+                        }
+                        for (let j=0; j < i; j++) {
+                            show[j].innerHTML = "";
+                        }
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].innerHTML = "";
+                        }
+                    })
+                }
+                let back = document.querySelector(".back-link");
+                back.addEventListener('click', function () {
+                    var ans = window.confirm("You will lose your progress on the quiz! Return home?");
+                    if (ans) {
+                        window.location.href="../index.html";
+                    }
+                    else {
+                        return false;
+                    }
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 3: Doing something about it</p>
+        <div class="container quiz">
+            <p>Hello world!</p>
+            
+        </div>
+        <a class="back-link">home</a>
+    </body>
+    <footer>
+        
+    </footer>
+</html>
