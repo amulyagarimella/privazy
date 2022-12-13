@@ -4,6 +4,34 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="static/main.css" />
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let openAbout = document.querySelector("a.about-modal.show");
+                let about = document.querySelector("div.about-modal");
+                let overlay = document.querySelector("div.overlay");
+                let closeAbout = document.querySelector("a.about-modal.hide");
+                openAbout.addEventListener('click', function () {
+                    overlay.style.display = "block";
+                    about.style.display = "inline";
+                })
+                closeAbout.addEventListener('click', function () {
+                    about.style.display = "none";
+                    overlay.style.display = "none";
+                })
+
+                let openFeedback = document.querySelector("a.feedback-modal.show");
+                let feedback = document.querySelector("div.feedback-modal");
+                let closeFeedback = document.querySelector("a.feedback-modal.hide");
+                openFeedback.addEventListener('click', function () {
+                    overlay.style.display = "block";
+                    feedback.style.display = "inline";
+                })
+                closeFeedback.addEventListener('click', function () {
+                    feedback.style.display = "none";
+                    overlay.style.display = "none";
+                })
+            })
+        </script>
     </head>
     <body>
         <h1>priva<span>z</span>y</h1>
@@ -17,9 +45,45 @@
         <div class="container">
             <p class="main-text">Finally, sign the <a href="#" class="main-link">pledge</a>.</p>
         </div>
+
+        <div class="about-modal hidden">
+            <div class="quiz scrollbox">
+                <p><a class="about-modal hide">x</a></p>
+            </div>
+            <div class="quiz scrollbox">
+                <p>
+                    Hello! We're Taylor and Amulya, two students who 
+                    wanted to create a fun way for students to learn about digital privacy
+                    in the modern age.
+                </p>
+                <p>
+                    Privazy is our final project for <b>CS105</b>, taught by the incomparable
+                    Prof. Jim Waldo at Harvard University.
+                    Thank you to: Prof. Waldo, the course staff, our
+                    incredible classmates, and <b>you</b>!
+                </p>
+            </div>
+        </div>
+
+        <div class="feedback-modal hidden">
+            <div class="quiz scrollbox">
+                <p><a class="feedback-modal hide">x</a></p>
+            </div>
+            <div class="quiz scrollbox">
+                <p>
+                    We would love your questions and comments.
+                </p>
+                <p>
+                    Contact us here: TODO.
+                </p>
+            </div>
+        </div>
+
+        <div class="overlay hidden"></div>
         
     </body>
+
     <footer>
-        <a href="#">about us</a> / <a href="#">feedback</a>
+        <a class="about-modal show">about us</a> / <a class="feedback-modal show">feedback</a>
     </footer>
 </html>
