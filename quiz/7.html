@@ -4,6 +4,23 @@
         <link rel="stylesheet" href="../static/main.css" />
         <script src="quiz.js"></script>
         <script src="back.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let show = document.querySelectorAll(".show");
+                let correctCount = 0;
+                for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        if (show[i].classList[2] == "correct") {
+                            correctCount++;
+                            count.innerHTML = correctCount;
+                            if (correctCount == qs.length) {
+                                last.innerHTML = 'What have we <a href="8.html">learned</a>?';
+                            }
+                        }
+                    })
+                }
+            })
+        </script>
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
         <title>Privazy | Quiz</title>
     </head>
@@ -60,7 +77,7 @@
 
         <div class="container quiz">
             <p>Complete: <span id="count">0</span>/7</p>
-            <p class="last" id='What have we <a href="8.html">learned</a>?'>Complete the quiz to move on!</p>
+            <p class="last">Complete the quiz to move on!</p>
         </div>
         <a class="back modal s back-link">home</a>
 
