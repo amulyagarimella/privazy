@@ -6,28 +6,122 @@
         <link rel="stylesheet" href="static/main.css" />
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                let openAbout = document.querySelector("a.about.modal.show");
-                let about = document.querySelector("div.about.modal");
-                let overlay = document.querySelector("div.overlay");
-                let closeAbout = document.querySelector("a.about.modal.hide");
-                openAbout.addEventListener('click', function () {
-                    overlay.style.display = "block";
-                    about.style.display = "inline";
-                })
-                closeAbout.addEventListener('click', function () {
-                    about.style.display = "none";
-                    overlay.style.display = "none";
-                })
+                if (localStorage.getItem("quizDone") == null) {
+                    localStorage.setItem("quizDone", false);
+                }
+                if (localStorage.getItem("refDone") == null) {
+                    localStorage.setItem("refDone", false);
+                }
+                if (localStorage.getItem("pledgeDone") == null) {
+                    localStorage.setItem("pledgeDone", false);
+                }
 
-                let openFeedback = document.querySelector("a.feedback.modal.show");
-                let feedback = document.querySelector("div.feedback.modal");
-                let closeFeedback = document.querySelector("a.feedback.modal.hide");
-                openFeedback.addEventListener('click', function () {
-                    overlay.style.display = "block";
-                    feedback.style.display = "inline";
-                })
-                closeFeedback.addEventListener('click', function () {
-                    feedback.style.display = "none";
+                let tasks = document.querySelectorAll(".main-text");
+                if (localStorage.getItem("quizDone") == "true") {
+                    tasks[0].children[0].style.textDecoration =  "line-through";
+                    tasks[0].children[0].style.textDecorationColor =  "white";
+                    tasks[0].children[0].style.textDecorationThickness =  "4px";
+                    tasks[0].children[0].style.textDecorationStyle =  "straight";
+                }
+                if (localStorage.getItem("refDone") == "true") {
+                    tasks[1].children[0].style.textDecoration =  "line-through";
+                    tasks[1].children[0].style.textDecorationColor =  "white";
+                    tasks[1].children[0].style.textDecorationThickness =  "4px";
+                    tasks[1].children[0].style.textDecorationStyle =  "straight";
+                }
+                if (localStorage.getItem("pledgeDone") == "true") {
+                    tasks[2].children[0].style.textDecoration =  "line-through";
+                    tasks[2].children[0].style.textDecorationColor =  "white";
+                    tasks[2].children[0].style.textDecorationThickness =  "4px";
+                    tasks[2].children[0].style.textDecorationStyle =  "straight";
+                }
+                let openModal = document.querySelectorAll("a.modal.show");
+                let modal = document.querySelector("div.modal");
+                let content = modal.querySelector(".content");
+                let overlay = document.querySelector("div.overlay");
+                let closeModal = document.querySelector("a.modal.hide");
+                for (let i = 0; i < openModal.length; i++) {
+                    let type = openModal[i].classList[0];
+                    openModal[i].addEventListener('click', function () {
+                        if (type == "about") {
+                            content.innerHTML = '<p>\
+                            Hello! We\'re Taylor and Amulya, two students who \
+                            wanted to create a fun way for students to learn about digital privacy\
+                            in the modern age.\
+                            </p>\
+                            <p>\
+                            Privazy is our final project for <b>CS105</b>, taught by the incomparable\
+                            Prof. Jim Waldo at Harvard University.\
+                            Thank you to: Prof. Waldo, the course staff, our\
+                            incredible classmates, and <b>you</b>!\
+                            </p>';
+                            overlay.style.display = "block";
+                            modal.style.display = "inline";
+                        }
+                        else if (type == "feedback") {
+                            content.innerHTML = '<p>\
+                            We would love your questions and comments.\
+                            </p>\
+                            <p>\
+                            Contact us here: TODO.\
+                            </p>';
+                            overlay.style.display = "block";
+                            modal.style.display = "inline";
+                        }
+                        else if (type == "q") {
+                            if (localStorage.getItem("quizDone") == "true") {
+                                content.innerHTML = '<p>\
+                                You\'ve already completed the quiz!\
+                                </p>';
+                                overlay.style.display = "block";
+                                modal.style.display = "inline";
+                            }
+                            else {
+                                window.location.href = "quiz/1.html";
+                            }
+                        }
+                        else if (type == "r") {
+                            if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "false") {
+                                window.location.href = "reflect.html";
+                            }
+                            else if (localStorage.getItem("refDone") == "true") {
+                                content.innerHTML = '<p>\
+                                You\'ve already completed the reflection!\
+                                </p>';
+                                overlay.style.display = "block";
+                                modal.style.display = "inline";
+                            }
+                            else {
+                                content.innerHTML = '<p>\
+                                Be sure to complete the quiz first!\
+                                </p>';
+                                overlay.style.display = "block";
+                                modal.style.display = "inline";
+                            }
+                        }
+                        else if (type == "p") {
+                            if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "true" && localStorage.getItem("pledgeDone") == "false") {
+                                window.location.href = "pledge.html";
+                            }
+                            else if (localStorage.getItem("pledgeDone") == "true") {
+                                content.innerHTML = '<p>\
+                                You\'re all done!\
+                                </p>';
+                                overlay.style.display = "block";
+                                modal.style.display = "inline";
+                            }
+                            else {
+                                content.innerHTML = '<p>\
+                                Be sure to complete the quiz and reflection first!\
+                                </p>';
+                                overlay.style.display = "block";
+                                modal.style.display = "inline";
+                            }
+                        }
+                    })
+                }
+                closeModal.addEventListener('click', function () {
+                    modal.style.display = "none";
                     overlay.style.display = "none";
                 })
             })
@@ -37,45 +131,20 @@
         <h1>priva<span>z</span>y</h1>
         <p class="subtitle">Critical thinking about our digital privacy.</p>
         <div class="container">
-            <p class="main-text">First, take the <a href="quiz/1.html" class="main-link">qui<span>z</span></a>.</p>
+            <p class="main-text">First, take the <a class="q modal show main-link">qui<span>z</span></a>.</p>
         </div>
         <div class="container">
-            <p class="main-text">Then, do the <a href="#" class="main-link">survey</a>.</p>
+            <p class="main-text">Then, <a class="r modal show main-link">reflect</a>.</p>
         </div>
         <div class="container">
-            <p class="main-text">Finally, sign the <a href="#" class="main-link">pledge</a>.</p>
+            <p class="main-text">Finally, sign the <a class="p modal show main-link">pledge</a>.</p>
         </div>
 
-        <div class="about modal hidden">
+        <div class="modal hidden">
             <div class="quiz scrollbox">
-                <p><a class="about modal hide">x</a></p>
+                <p><a class="modal hide">x</a></p>
             </div>
-            <div class="quiz scrollbox">
-                <p>
-                    Hello! We're Taylor and Amulya, two students who 
-                    wanted to create a fun way for students to learn about digital privacy
-                    in the modern age.
-                </p>
-                <p>
-                    Privazy is our final project for <b>CS105</b>, taught by the incomparable
-                    Prof. Jim Waldo at Harvard University.
-                    Thank you to: Prof. Waldo, the course staff, our
-                    incredible classmates, and <b>you</b>!
-                </p>
-            </div>
-        </div>
-
-        <div class="feedback modal hidden">
-            <div class="quiz scrollbox">
-                <p><a class="feedback modal hide">x</a></p>
-            </div>
-            <div class="quiz scrollbox">
-                <p>
-                    We would love your questions and comments.
-                </p>
-                <p>
-                    Contact us here: TODO.
-                </p>
+            <div class="quiz scrollbox content">
             </div>
         </div>
 

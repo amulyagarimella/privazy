@@ -123,6 +123,23 @@ footer {
     margin-bottom: 0px;
 }
 
+textarea.quiz {
+    color: white;
+    background-color: transparent;
+    font-size: 1.2em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 50%;
+    height: 30%;
+    padding: 20px;
+    resize: none;
+}
+
+::placeholder { 
+    color: white;
+    opacity: .5;
+  }
+
 
 .hidden {
     display: none;
@@ -218,4 +235,8 @@ div.modal {
 }
 ::-moz-selection {
     background: #79d5dd76;
+}
+
+.modal.hide {
+    line-height: 90%;
 }
