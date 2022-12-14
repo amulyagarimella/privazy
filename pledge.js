@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     open.addEventListener('click', function () {
         if (pledge.value != "" && signature.value != "") {
             window.location.href="index.html";
-            localStorage.setItem("pledgeDone", true);
+            sessionStorage.setItem("pledgeDone", true);
         }
         else {
             overlay.style.display = "block";

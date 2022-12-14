@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let type = openModal[i].classList[0];
         openModal[i].addEventListener('click', function () {
             if (type == "q") {
-                if (localStorage.getItem("quizDone") == "true") {
+                if (sessionStorage.getItem("quizDone") == "true") {
                     content.innerHTML = 'You\'ve already completed this!';
                     overlay.style.display = "block";
                     modal.style.display = "inline";
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             else if (type == "r") {
-                if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "false") {
+                if (sessionStorage.getItem("quizDone") == "true" && sessionStorage.getItem("refDone") == "false") {
                     window.location.href = "reflect.html";
                 }
-                else if (localStorage.getItem("refDone") == "true") {
+                else if (sessionStorage.getItem("refDone") == "true") {
                     content.innerHTML = 'You\'ve already completed this!';
                     overlay.style.display = "block";
                     modal.style.display = "inline";
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             else if (type == "p") {
-                if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "true" && localStorage.getItem("pledgeDone") == "false") {
+                if (sessionStorage.getItem("quizDone") == "true" && sessionStorage.getItem("refDone") == "true" && sessionStorage.getItem("pledgeDone") == "false") {
                     window.location.href = "pledge.html";
                 }
-                else if (localStorage.getItem("pledgeDone") == "true") {
+                else if (sessionStorage.getItem("pledgeDone") == "true") {
                     content.innerHTML = 'You\'ve already completed this!';
                     overlay.style.display = "block";
                     modal.style.display = "inline";

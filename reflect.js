@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     open.addEventListener('click', function () {
         if (ref.value != "") {
             window.location.href="index.html";
-            localStorage.setItem("refDone", true);
+            sessionStorage.setItem("refDone", true);
         }
         else {
             overlay.style.display = "block";
