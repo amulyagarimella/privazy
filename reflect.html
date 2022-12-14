@@ -1,0 +1,58 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+                let ref = document.querySelector("textarea");
+
+                let openBack = document.querySelector("a.modal.show");
+                let back = document.querySelector("div.modal");
+                let closeBack = document.querySelector("a.modal.hide");
+                let overlay = document.querySelector(".overlay");
+                openBack.addEventListener('click', function () {
+                    if (ref.value != "") {
+                        window.location.href="index.html";
+                        localStorage.setItem("refDone", true);
+                    }
+                    else {
+                        overlay.style.display = "block";
+                        back.style.display = "inline";
+                    }
+                })
+                closeBack.addEventListener('click', function () {
+                    back.style.display = "none";
+                    overlay.style.display = "none";
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>reflect</h1>
+        <p class="subtitle">What's your current level of digital privacy?</p>
+        <p>What do you think companies can learn about you? How does that make you feel?</p>
+        <form>
+            <textarea class="container quiz" placeholder="Currently making Mark Zuckerberg richer, ready to make a change..."></textarea>
+        </form>
+
+
+
+        <p><a class="modal show"><emph>Complete reflection.</emph></a></p>
+
+        <div class="modal hidden" style="width: 25% !important">
+            <div class="quiz scrollbox">
+                <p><a class="modal hide">x</a></p>
+            </div>
+            <div class="quiz scrollbox content">
+                Be sure to finish the reflection first!
+            </div>
+        </div>
+
+        <div class="overlay hidden"></div>
+
+    </body>
+    <footer>
+        
+    </footer>
+</html>

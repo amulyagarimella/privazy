@@ -1,0 +1,70 @@
+
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../static/main.css" />
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let show = document.querySelectorAll(".show");
+				for (let i=0; i < show.length; i++) {
+                    show[i].addEventListener('click', function() {
+                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
+                        for (let j=0; j < hidden.length; j++)
+                        {
+                            hidden[j].style.display = "inline-block";
+                            hidden[j].style.marginTop = "auto";
+                        }
+                        for (let j=0; j < i; j++) {
+                            show[j].innerHTML = "";
+                        }
+                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
+                        for (let j=0; j < samelvl.length; j++) {
+                            samelvl[j].innerHTML = "";
+                        }
+                    })
+                }
+                let done = document.querySelector(".quizdone");
+                done.addEventListener("click", function () {
+                    localStorage.setItem("quizDone", true)
+                })
+            })
+		</script>
+    </head>
+    <body>
+        <h1>qui<span>z</span></h1>
+        <p class="subtitle">Part 3: What Next?</p>
+        <div class="container quiz">
+            <p>
+                Ultimately, it's <emph>your decision</emph> how to move forward.
+                For you, deleting TikTok might be worth it to avoid those creepy invasive feelings. 
+                On the other hand, TikTok might be a lot of fun and a great way to connect with friends!
+            </p>
+            <p>
+                Here are some things we encourage everyone to do:
+            </p>
+            <p>
+                <a class="show q1">Use privacy-protecting browser extensions.</a>
+                <span class="hidden q1">
+                    Use privacy-protecting browser extensions like Disconnect, made by the company that performed the TikTok investigation. Disconnect shows you how websites are trying to track you and blocks a lot of that data collection. Privacy experts often recommend uBlock Origin, as well, which stops all kinds of online trackers.
+                </span>
+            </p>
+            <p class="hidden q1">
+                <a class="show q2">Change your browser's privacy settings.</a>
+                <span class="hidden q2">
+                    Change your browser's privacy settings. A lot of browsers have built-in controls you can use to block trackers, including cookies, pixels, and other technologies. Open your browser's preferences or settings, and you'll usually find the controls in the privacy section. 
+                </span>
+            </p>
+            <p class="hidden q2">
+                <a class="show q3">Try a more private browser.</a>
+                <span class="hidden q3">
+                    Try a more private browser. Google Chrome collects a lot of data on behalf of Google. The Consumer Reports Security Planner recommends Firefox and Brave as more privacy-focused options.
+                </span>
+            </p>
+
+            <p class="hidden q3">Congrats, you've completed the quiz! <a href="../index.html" class="quizdone"><emph>Click here to go home.</emph></a></p>
+        </div>
+    </body>
+    <footer>
+        
+    </footer>
+</html>
