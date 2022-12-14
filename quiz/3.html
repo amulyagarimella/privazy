@@ -8,6 +8,8 @@
             document.addEventListener('DOMContentLoaded', function() {
                 let show = document.querySelectorAll(".show");
                 let correctCount = 0;
+                let qs = document.querySelectorAll(".hidden.correct");
+                let last = document.querySelector("#last")
                 for (let i=0; i < show.length; i++) {
                     show[i].addEventListener('click', function() {
                         if (show[i].classList[2] == "correct") {
@@ -60,7 +62,7 @@
 
         <div class="container quiz">
             <p>Complete: <span id="count">0</span>/5</p>
-            <p class="last">Complete the quiz to move on!</p>
+            <p id="last">Complete the quiz to move on!</p>
         </div>
         <a class="back modal s back-link">home</a>
 
