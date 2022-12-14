@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let pledge = document.querySelector("textarea");
     let signature = document.querySelector("input");
     let open = document.querySelector("a.modal.show");
-    let back = document.querySelector("div.modal");
+    let modal = document.querySelector("div.modal");
     let close = document.querySelector("a.modal.hide");
     let overlay = document.querySelector(".overlay");
     open.addEventListener('click', function () {
@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         else {
             overlay.style.display = "block";
-            back.style.display = "inline";
+            modal.style.display = "inline";
         }
     })
     close.addEventListener('click', function () {
-        back.style.display = "none";
+        modal.style.display = "none";
         overlay.style.display = "none";
     })
 })

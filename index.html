@@ -5,36 +5,39 @@
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="static/main.css" />
         <script src ="index.js"></script>
+        <script src ="index_modalpage.js"></script>
+        <script src ="index_modaltask.js"></script>
     </head>
     <body>
         <h1>priva<span>z</span>y</h1>
         <p class="subtitle">Critical thinking about our digital privacy.</p>
         <div class="container">
-            <p class="main-text">First, take the <a class="q modal show main-link">qui<span>z</span></a>.</p>
+            <p class="main-text">First, take the <a class="q modal task show main-link">qui<span>z</span></a>.</p>
         </div>
         <div class="container">
-            <p class="main-text">Then, <a class="r modal show main-link">reflect</a>.</p>
+            <p class="main-text">Then, <a class="r modal task show main-link">reflect</a>.</p>
         </div>
         <div class="container">
-            <p class="main-text">Finally, sign the <a class="p modal show main-link">pledge</a>.</p>
+            <p class="main-text">Finally, sign the <a class="p modal task show main-link">pledge</a>.</p>
         </div>
 
         <div class="container">
             <p class="main-text hidden complete"><emph>Now, go forth and make digital strides!</emph></p>
         </div>
 
-        <div class="modal hidden">
+        <div class="modal page hidden">
             <div class="quiz scrollbox">
-                <p class="quizr"><a class="modal hide">x</a></p>
+                <p class="quizr"><a class="modal page hide">x</a></p>
                 <p class="quizl"></p>
             </div>
             <div class="quiz scrollbox content">
             </div>
         </div>
 
-        <div class="modal2 hidden">
+        <div class="modal task hidden">
             <div class="quiz scrollbox content">
-                <p><a class="modal2 hide">OK</a></p>
+                <p></p>
+                <p><a class="modal task hide">OK</a></p>
             </div>
         </div>
 
@@ -43,6 +46,6 @@
     </body>
 
     <footer>
-        <a class="about modal show">about us</a> / <a class="feedback modal show">feedback</a>
+        <a class="about modal page show">about us</a> / <a class="feedback modal page show">feedback</a>
     </footer>
 </html>
