@@ -3,49 +3,8 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/main.css" />
-        <script>
-			document.addEventListener('DOMContentLoaded', function() {
-				let show = document.querySelectorAll(".show");
-				for (let i=0; i < show.length; i++) {
-                    show[i].addEventListener('click', function() {
-                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
-                        let replace = document.querySelectorAll(".replace." + show[i].classList[1]);
-                        for (let j=0; j < hidden.length; j++)
-                        {
-                            hidden[j].style.display = "block";
-                            
-                        }
-                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
-                        for (let j=0; j < samelvl.length; j++) {
-                            samelvl[j].style.textDecoration = "none";
-                            samelvl[j].style.cursor = "auto";
-                        }
-                        for (let j=0; j < replace.length; j++) {
-                            replace[j].innerHTML = "";
-                        }
-                    })
-                }
-                let openBack = document.querySelector("a.back.modal.s");
-                let back = document.querySelector("div.back.modal");
-                let next = document.querySelector("a.back.modal.n");
-                let closeBack = document.querySelector("a.back.modal.h");
-                let overlay = document.querySelector(".overlay");
-                openBack.addEventListener('click', function () {
-                    console.log("hi");
-                    overlay.style.display = "block";
-                    back.style.display = "inline";
-                })
-                closeBack.addEventListener('click', function () {
-                    back.style.display = "none";
-                    overlay.style.display = "none";
-                })
-                next.addEventListener('click', function () {
-                    back.style.display = "none";
-                    overlay.style.display = "none";
-                    window.location.href="../index.html";
-                })
-            })
-		</script>
+        <script src="expand.js"></script>
+        <script src="back.js"></script>
     </head>
     <body>
         <h1>qui<span>z</span></h1>

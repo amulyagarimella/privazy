@@ -2,65 +2,8 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/main.css" />
-        <script>
-			document.addEventListener('DOMContentLoaded', function() {
-				let show = document.querySelectorAll(".show");
-				for (let i=0; i < show.length; i++) {
-                    show[i].addEventListener('click', function() {
-                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1] + "." + show[i].classList[2]);
-                        for (let j=0; j < hidden.length; j++)
-                        {
-                            hidden[j].style.display = "block";
-                        }
-                        show[i].innerHTML = "";
-                    })
-                }
-                let corrects = document.querySelectorAll(".correct");
-                let qCount = document.querySelectorAll(".hidden.correct").length
-                let correctCount = 0;
-                let count = document.querySelector("#count");
-                let last = document.querySelector("#last");
-                for (let i=0; i < corrects.length; i++) {
-                    corrects[i].addEventListener('click', function() {
-                        let incorrects = document.querySelectorAll("." + corrects[i].classList[1] + ".incorrect");
-                        for (let j=0; j < incorrects.length; j++)
-                        {
-                            incorrects[j].innerHTML = "";
-                        }
-                        let sameshows = document.querySelectorAll(".show." + corrects[i].classList[1] + ".correct");
-                        for (let j=0; j < sameshows.length; j++)
-                        {
-                            sameshows[j].innerHTML = "";
-                        }
-                        correctCount++;
-                        count.innerHTML = correctCount;
-                        console.log(qCount);
-                        if (correctCount == qCount) {
-                            last.innerHTML = 'Seems like TikTok can learn a lot about us. <a href="4.html">What else can TikTok do?</a>';
-                        }
-                    })
-                }
-                let openBack = document.querySelector("a.back.modal.s");
-                let back = document.querySelector("div.back.modal");
-                let next = document.querySelector("a.back.modal.n");
-                let closeBack = document.querySelector("a.back.modal.h");
-                let overlay = document.querySelector(".overlay");
-                openBack.addEventListener('click', function () {
-                    console.log("hi");
-                    overlay.style.display = "block";
-                    back.style.display = "inline";
-                })
-                closeBack.addEventListener('click', function () {
-                    back.style.display = "none";
-                    overlay.style.display = "none";
-                })
-                next.addEventListener('click', function () {
-                    back.style.display = "none";
-                    overlay.style.display = "none";
-                    window.location.href="../index.html";
-                })
-            })
-		</script>
+        <script src="quiz.js"></script>
+        <script src="back.js"></script>
     </head>
     <body>
         <h1>qui<span>z</span></h1>

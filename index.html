@@ -4,135 +4,7 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="static/main.css" />
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                if (localStorage.getItem("quizDone") == null) {
-                    localStorage.setItem("quizDone", false);
-                }
-                if (localStorage.getItem("refDone") == null) {
-                    localStorage.setItem("refDone", false);
-                }
-                if (localStorage.getItem("pledgeDone") == null) {
-                    localStorage.setItem("pledgeDone", false);
-                }
-
-                let tasks = document.querySelectorAll(".main-text");
-                if (localStorage.getItem("quizDone") == "true") {
-                    tasks[0].children[0].style.textDecoration =  "line-through";
-                    tasks[0].children[0].style.textDecorationColor =  "white";
-                    tasks[0].children[0].style.textDecorationThickness =  "4px";
-                    tasks[0].children[0].style.textDecorationStyle =  "straight";
-                }
-                if (localStorage.getItem("refDone") == "true") {
-                    tasks[1].children[0].style.textDecoration =  "line-through";
-                    tasks[1].children[0].style.textDecorationColor =  "white";
-                    tasks[1].children[0].style.textDecorationThickness =  "4px";
-                    tasks[1].children[0].style.textDecorationStyle =  "straight";
-                }
-                if (localStorage.getItem("pledgeDone") == "true") {
-                    tasks[2].children[0].style.textDecoration =  "line-through";
-                    tasks[2].children[0].style.textDecorationColor =  "white";
-                    tasks[2].children[0].style.textDecorationThickness =  "4px";
-                    tasks[2].children[0].style.textDecorationStyle =  "straight";
-                }
-
-                let completeMessage = document.querySelector(".complete");
-                console.log(completeMessage);
-                if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "true" && localStorage.getItem("pledgeDone") == "true") {
-                    completeMessage.style.display = "block";
-                }
-
-                let openModal = document.querySelectorAll("a.modal.show");
-                let modal = document.querySelector("div.modal");
-                let content = modal.querySelector(".content");
-                let overlay = document.querySelector("div.overlay");
-                let closeModal = document.querySelector("a.modal.hide");
-                for (let i = 0; i < openModal.length; i++) {
-                    let type = openModal[i].classList[0];
-                    openModal[i].addEventListener('click', function () {
-                        if (type == "about") {
-                            content.innerHTML = '<p>\
-                            Hello! We\'re Taylor and Amulya, two students who \
-                            wanted to create a fun way for students to learn about digital privacy\
-                            in the modern age.\
-                            </p>\
-                            <p>\
-                            Privazy is our final project for <b>CS105</b>, taught by the incomparable\
-                            Prof. Jim Waldo at Harvard University.\
-                            Thank you to: Prof. Waldo, the course staff, our\
-                            incredible classmates, and <b>you</b>!\
-                            </p>';
-                            overlay.style.display = "block";
-                            modal.style.display = "inline";
-                        }
-                        else if (type == "feedback") {
-                            content.innerHTML = '<p>\
-                            We would love your questions and comments.\
-                            </p>\
-                            <p>\
-                            Contact us here: TODO.\
-                            </p>';
-                            overlay.style.display = "block";
-                            modal.style.display = "inline";
-                        }
-                        else if (type == "q") {
-                            if (localStorage.getItem("quizDone") == "true") {
-                                content.innerHTML = '<p>\
-                                You\'ve already completed the quiz!\
-                                </p>';
-                                overlay.style.display = "block";
-                                modal.style.display = "inline";
-                            }
-                            else {
-                                window.location.href = "quiz/1.html";
-                            }
-                        }
-                        else if (type == "r") {
-                            if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "false") {
-                                window.location.href = "reflect.html";
-                            }
-                            else if (localStorage.getItem("refDone") == "true") {
-                                content.innerHTML = '<p>\
-                                You\'ve already completed the reflection!\
-                                </p>';
-                                overlay.style.display = "block";
-                                modal.style.display = "inline";
-                            }
-                            else {
-                                content.innerHTML = '<p>\
-                                Be sure to complete the quiz first!\
-                                </p>';
-                                overlay.style.display = "block";
-                                modal.style.display = "inline";
-                            }
-                        }
-                        else if (type == "p") {
-                            if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "true" && localStorage.getItem("pledgeDone") == "false") {
-                                window.location.href = "pledge.html";
-                            }
-                            else if (localStorage.getItem("pledgeDone") == "true") {
-                                content.innerHTML = '<p>\
-                                You\'re all done!\
-                                </p>';
-                                overlay.style.display = "block";
-                                modal.style.display = "inline";
-                            }
-                            else {
-                                content.innerHTML = '<p>\
-                                Be sure to complete the quiz and reflection first!\
-                                </p>';
-                                overlay.style.display = "block";
-                                modal.style.display = "inline";
-                            }
-                        }
-                    })
-                }
-                closeModal.addEventListener('click', function () {
-                    modal.style.display = "none";
-                    overlay.style.display = "none";
-                })
-            })
-        </script>
+        <script src ="index.js"></script>
     </head>
     <body>
         <h1>priva<span>z</span>y</h1>
@@ -153,9 +25,16 @@
 
         <div class="modal hidden">
             <div class="quiz scrollbox">
-                <p><a class="modal hide">x</a></p>
+                <p class="quizr"><a class="modal hide">x</a></p>
+                <p class="quizl"></p>
             </div>
             <div class="quiz scrollbox content">
+            </div>
+        </div>
+
+        <div class="modal2 hidden">
+            <div class="quiz scrollbox content">
+                <p><a class="modal2 hide">OK</a></p>
             </div>
         </div>
 

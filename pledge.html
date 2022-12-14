@@ -3,30 +3,7 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="static/main.css" />
-        <script>
-			document.addEventListener('DOMContentLoaded', function() {
-                let pledge = document.querySelector("textarea");
-                let signature = document.querySelector("input");
-                let openBack = document.querySelector("a.modal.show");
-                let back = document.querySelector("div.modal");
-                let closeBack = document.querySelector("a.modal.hide");
-                let overlay = document.querySelector(".overlay");
-                openBack.addEventListener('click', function () {
-                    if (pledge.value != "" && signature.value != "") {
-                        window.location.href="index.html";
-                        localStorage.setItem("pledgeDone", true);
-                    }
-                    else {
-                        overlay.style.display = "block";
-                        back.style.display = "inline";
-                    }
-                })
-                closeBack.addEventListener('click', function () {
-                    back.style.display = "none";
-                    overlay.style.display = "none";
-                })
-            })
-		</script>
+        <script src="pledge.js"></script>
     </head>
     <body>
         <h1>pledge</h1>

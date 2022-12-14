@@ -3,32 +3,15 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/main.css" />
+        <script src="hider.js"></script>
         <script>
-			document.addEventListener('DOMContentLoaded', function() {
-				let show = document.querySelectorAll(".show");
-				for (let i=0; i < show.length; i++) {
-                    show[i].addEventListener('click', function() {
-                        let hidden = document.querySelectorAll(".hidden." + show[i].classList[1]);
-                        for (let j=0; j < hidden.length; j++)
-                        {
-                            hidden[j].style.display = "inline-block";
-                            hidden[j].style.marginTop = "auto";
-                        }
-                        for (let j=0; j < i; j++) {
-                            show[j].innerHTML = "";
-                        }
-                        let samelvl = document.querySelectorAll(".show." + show[i].classList[1]);
-                        for (let j=0; j < samelvl.length; j++) {
-                            samelvl[j].innerHTML = "";
-                        }
-                    })
-                }
+            document.addEventListener('DOMContentLoaded', function() {
                 let done = document.querySelector(".quizdone");
-                done.addEventListener("click", function () {
-                    localStorage.setItem("quizDone", true)
+                    done.addEventListener("click", function () {
+                        localStorage.setItem("quizDone", true)
                 })
             })
-		</script>
+        </script>
     </head>
     <body>
         <h1>qui<span>z</span></h1>

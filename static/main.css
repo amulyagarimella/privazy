@@ -207,7 +207,7 @@ div.modal, .overlay {
 
 div.modal {
     z-index: 2 !important;
-    width: 50% !important;
+    max-width: 50% !important;
     background: radial-gradient(#0398bd, #11c443, #bfd70a);
     background-size: 600% 600%;
     -webkit-animation: AnimationName 30s ease infinite;
