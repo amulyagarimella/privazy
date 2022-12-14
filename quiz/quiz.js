@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let corrects = document.querySelectorAll(".correct");
     let qs = document.querySelectorAll(".hidden.correct")
     let count = document.querySelector("#count");
-    let last = document.querySelector("#last");
+    let last = document.querySelector(".last");
     for (let i=0; i < corrects.length; i++) {
         corrects[i].addEventListener('click', function() {
             let incorrects = document.querySelectorAll("." + corrects[i].classList[1] + ".incorrect");
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             count.innerHTML = correctCount;
             if (correctCount == qs.length) {
-                last.innerHTML = 'What have we <a href="8.html">learned</a>?';
+                last.innerHTML = last.id;
             }
         })
     }
