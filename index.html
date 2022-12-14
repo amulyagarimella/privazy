@@ -35,6 +35,13 @@
                     tasks[2].children[0].style.textDecorationThickness =  "4px";
                     tasks[2].children[0].style.textDecorationStyle =  "straight";
                 }
+
+                let completeMessage = document.querySelector(".complete");
+                console.log(completeMessage);
+                if (localStorage.getItem("quizDone") == "true" && localStorage.getItem("refDone") == "true" && localStorage.getItem("pledgeDone") == "true") {
+                    completeMessage.style.display = "block";
+                }
+
                 let openModal = document.querySelectorAll("a.modal.show");
                 let modal = document.querySelector("div.modal");
                 let content = modal.querySelector(".content");
@@ -138,6 +145,10 @@
         </div>
         <div class="container">
             <p class="main-text">Finally, sign the <a class="p modal show main-link">pledge</a>.</p>
+        </div>
+
+        <div class="container">
+            <p class="main-text hidden complete"><emph>Now, go forth and make digital strides!</emph></p>
         </div>
 
         <div class="modal hidden">

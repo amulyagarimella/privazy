@@ -5,16 +5,50 @@
         <link rel="stylesheet" href="static/main.css" />
         <script>
 			document.addEventListener('DOMContentLoaded', function() {
+                let pledge = document.querySelector("textarea");
+                let signature = document.querySelector("input");
+                let openBack = document.querySelector("a.modal.show");
+                let back = document.querySelector("div.modal");
+                let closeBack = document.querySelector("a.modal.hide");
+                let overlay = document.querySelector(".overlay");
+                openBack.addEventListener('click', function () {
+                    if (pledge.value != "" && signature.value != "") {
+                        window.location.href="index.html";
+                        localStorage.setItem("pledgeDone", true);
+                    }
+                    else {
+                        overlay.style.display = "block";
+                        back.style.display = "inline";
+                    }
+                })
+                closeBack.addEventListener('click', function () {
+                    back.style.display = "none";
+                    overlay.style.display = "none";
+                })
             })
 		</script>
     </head>
     <body>
         <h1>pledge</h1>
-        <p class="subtitle">The Privazy Pledge</p>
-        <div class="container quiz">
-            <p>Hello world</p>
-            
+        <p class="subtitle">I pledge to protect my digital privacy by...</p>
+        <form>
+            <textarea class="container quiz" placeholder="Privacy protection actions here..."></textarea>
+            <p>Signed, <input type="text" class="container quiz" placeholder="Your name here..."></form></p>
+        </form>
+
+        <p><a class="modal show"><emph>Complete Privazy.</emph></a></p>
+
+        <div class="modal hidden" style="width: 25% !important">
+            <div class="quiz scrollbox">
+                <p><a class="modal hide">x</a></p>
+            </div>
+            <div class="quiz scrollbox content">
+                Be sure to write and sign your pledge!
+            </div>
         </div>
+
+        <div class="overlay hidden"></div>
+
     </body>
     <footer>
         

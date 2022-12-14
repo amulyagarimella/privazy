@@ -75,7 +75,7 @@ p {
 }
 
 .main-text {
-    font-size: 6em;
+    font-size: 5.5em;
     margin: auto;
     font-weight: 700;
 }
@@ -126,13 +126,22 @@ footer {
 textarea.quiz {
     color: white;
     background-color: transparent;
-    font-size: 1.2em;
+    font-size: 1.5em;
     overflow-x: hidden;
     overflow-y: scroll;
     width: 50%;
     height: 30%;
     padding: 20px;
     resize: none;
+}
+
+input.quiz {
+    color: white;
+    background-color: transparent;
+    font-size: 1em;
+    padding: 20px;
+    width: 50%;
+    display: inline;
 }
 
 ::placeholder { 
